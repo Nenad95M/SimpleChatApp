@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+}
+.title{
+    text-align: center;
+}
+/*Inicijalna poruka*/
+#greeting{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Registration and Login form*/
+#registrationForm, #loginForm{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+#registrationForm input, #loginForm input{
+    padding: 0.5rem;
+}
+
+#loginForm .form-text, #registrationForm .form-text
+{
+    text-align: center;
+}
+
+#footer .footerText{
+    text-align: center;
+}
