@@ -10,26 +10,16 @@ class LoginFormValidator{
         $this->password = $password;
     }
     private function validUsername(){
-        $result=false;
-        if(!empty(trim($this->password))){
-          $result=true;
-        }
-        return $result;
+     
+        return !empty(trim($this->password));
     }
     private function validPassword(){
-        $result=false;
-        if(!empty(trim($this->password))){
-          $result=true;
-        }
-        return $result;
+    
+        return !empty(trim($this->password));
     }
 
     public function validLoginForm(){
-        $result=false;
-
-        if($this->validUsername()&& $this->validPassword()){
-            $result=true;
-        }
-        return $result;
+   
+        return $this->validUsername()&& $this->validPassword();
     }
 }

@@ -30,38 +30,26 @@ class RegistrationFormValidator
     //metoda proverava korisnicko ime pomocu regularnih izraza
     private function validUsername()
     {
-        $result = false;
-        if (preg_match('/^[a-zA-Z0-9\s]+$/', $this->username)) {
-            $result = true;
-        }
-        return $result;
+        
+        return preg_match('/^[a-zA-Z0-9\s]+$/', $this->username);
     }
     //metoda proverava  ime pomocu regularnih izraza
     private function validFirstname()
     {
-        $result = false;
-        if (preg_match('/^[a-zA-Z0-9\s]+$/', $this->firstname)) {
-            $result = true;
-        }
-        return $result;
+    
+        return preg_match('/^[a-zA-Z0-9\s]+$/', $this->firstname);
     }
     //metoda proverava  ime pomocu regularnih izraza
     private function validLastname()
     {
-        $result = false;
-        if (preg_match('/^[a-zA-Z0-9\s]+$/', $this->lastname)) {
-            $result = true;
-        }
-        return $result;
+    
+        return preg_match('/^[a-zA-Z0-9\s]+$/', $this->lastname);
     }
     //metoda koja proverava mejl adresu
     private function validEmail()
     {
-        $result = false;
-        if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $result = true;
-        }
-        return $result;
+        
+        return filter_var($this->email, FILTER_VALIDATE_EMAIL);
     }
 
     //proverava da li je korisnik uneo istu lozinku
