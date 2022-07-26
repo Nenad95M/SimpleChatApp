@@ -17,5 +17,7 @@
     <em>Please <a href="./login.php">log in</a> </em>
     </div>
 </form>
+<div class="messagebox"><p><span id="errorMessage"></span></p></div>
+
 </section>
 <?php require_once 'templates/footer.php'?>

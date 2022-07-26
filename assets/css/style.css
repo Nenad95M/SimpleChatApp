@@ -4,6 +4,13 @@
 .title{
     text-align: center;
 }
+.warningClass{
+    border: 1px solid red;
+}
+
+.messagebox{
+    text-align: center;
+}
 /*Inicijalna poruka*/
 #greeting{
     display: flex;
