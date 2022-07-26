@@ -3,7 +3,7 @@ class UserLogIn
 {
     private $username;
     private $password;
-  
+
 
     public function __construct($username, $password)
     {
@@ -28,12 +28,12 @@ class UserLogIn
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
             //setujemo parametre
             $param_username = $this->username;
-            $password=$this->password;
+            $password = $this->password;
             // ako se stejtment izvrsi idemo dalje sa logovanjem
             if ($stmt->execute()) {
                 //ako postoji kolona sa ovim korisnickom imenom fecujemo njene podatke i proveravamo pasword
-                if ($stmt->rowCount()>0) {
-            //ako ima korisnika fecujemo njegove podatke iz tabele
+                if ($stmt->rowCount() > 0) {
+                    //ako ima korisnika fecujemo njegove podatke iz tabele
                     if ($row = $stmt->fetch()) {
                         $tableId = $row["id"];
                         $tableUsername = $row["username"];
@@ -47,15 +47,14 @@ class UserLogIn
                             Database::disconnect();
                             // redirektujemo korisnika na stranicu gde je sada ulogovan
                             header("location:index.php");
-                        } else{
+                        } else {
                             echo "Netacan password";
                         }
-                    } 
-                }else{
+                    }
+                } else {
                     echo "Korisnicko ime nije registrovano";
                 }
-               
-            } else{
+            } else {
                 echo "Stejtment nije uspeo da se zavrsi";
             }
             //zatvaramo stejtment
@@ -65,9 +64,10 @@ class UserLogIn
         unset($pdo);
     }
 
-    public static function logOut() {
+    public static function logOut()
+    {
         session_start();
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]===true){
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             session_unset();
             session_destroy();
             header("location:index.php");
