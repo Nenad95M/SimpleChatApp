@@ -64,4 +64,14 @@ class UserLogIn
         //zatvaramo konekciju
         unset($pdo);
     }
+
+    public static function logOut() {
+        session_start();
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]===true){
+            session_unset();
+            session_destroy();
+            header("location:index.php");
+            exit;
+        }
+    }
 }

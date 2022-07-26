@@ -1,12 +1,8 @@
 <?php
-session_start();
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]===true){
-    session_unset();
-    session_destroy();
-    header("location:index.php");
-    exit;
-}
+require_once 'classes/user_login.php';
+//staticka metoda kojom korisnik prekida sesiju
+UserLogIn::logOut();
 
 
 ?>

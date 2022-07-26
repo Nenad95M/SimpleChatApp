@@ -67,11 +67,9 @@ class RegistrationFormValidator
     //proverava da li je korisnik uneo istu lozinku
     private function passwordMatch()
     {
-        $result = false;
-        if ($this->password === $this->password2) {
-            $result = true;
-        }
-        return $result;
+        return $this->password === $this->password2;
+            
+        
     }
     //proverava da li korisnik mozda vec postoji u bazi
     private function uniqeUser()
@@ -100,11 +98,11 @@ class RegistrationFormValidator
 //javna metoda koja proverava da li su svi inputi validni
     public function isValid(){
         $result=false;
-        if($this->notEmpty() && $this->validUsername() && $this->validFirstname() && $this->validLastname() && $this->passwordMatch() && $this->uniqeUser()){
+        if($this->notEmpty() && $this->validUsername() && $this->validFirstname() && $this->validLastname() && $this->passwordMatch() && $this->uniqeUser() && $this->validEmail()){
         $result=true;
         }
         else{
-            echo "Imamo problem sa unosom";
+            echo "Registracija nije prihvacena";
         }
         return $result;
     }
