@@ -18,7 +18,6 @@ export function validateLogin() {
         let res = true;
         for (const input of inputs) {
             if (input.value.trim() === "") {
-                input.placeholder = "Morate popuniti ovo polje!";
                 input.classList.add('warningClass');
                 res = false;
                 message = "Please make sure all fields are filled";
@@ -77,7 +76,6 @@ export function validateRegister() {
         let res = true;
         for (const input of inputs) {
             if (input.value.trim() === "") {
-                input.placeholder = "Morate popuniti ovo polje!";
                 input.classList.add('warningClass');
                 res = false;
                 message = "Please make sure all fields are filled";
