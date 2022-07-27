@@ -22,9 +22,9 @@ export function validateLogin() {
 
     function validUsername() {
         let res = true;
-        const re = /^[a-zA-Z]{2,10}$/;
+        const re = /^[a-zA-Z]{2,20}$/;
         if (!re.test(username.value.trim())) {
-            message = "Username must be minimum two and maximum ten characters";
+            message = "Username must be minimum 2 and maximum 20 characters";
             res = false;
         }
         return res;
