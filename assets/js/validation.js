@@ -1,3 +1,11 @@
+const notificationProblem=(textMessage)=>{
+   const successMessage= document.getElementById('successMessage');
+   const errorMessage=document.getElementById('errorMessage');
+   errorMessage.innerText=textMessage;
+   successMessage.classList.remove('none');
+    setTimeout(() => { successMessage.classList.add('none') }, 2000);
+}
+
 export function validateLogin() {
     const loginForm = document.getElementById('loginForm');
     const inputs = Array.from(loginForm.querySelectorAll('input'));
@@ -45,7 +53,7 @@ export function validateLogin() {
         if (notEmpty() && validUsername() && validPassword()) {
             loginForm.submit();
         }
-        document.getElementById('errorMessage').innerText = message;
+        notificationProblem(message);
         e.preventDefault();
     })
 
@@ -119,7 +127,7 @@ export function validateRegister() {
         if (notEmpty() && validNames() && validPassword()&&validEmail()) {
             registrationForm.submit();
         }
-        document.getElementById('errorMessage').innerText = message;
+        notificationProblem(message);
         e.preventDefault();
     })
 

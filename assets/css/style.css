@@ -1,8 +1,47 @@
+:root{
+    --primary-color:#28a745 ;
+    --secondary-color:#0284d0;
+}
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+/*Colors*/
+.primary-color{
+    background-color: #28a745;
+    color: #fff;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+}
+main{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+   height: 100vh;
+   margin-bottom: 2em;
+   
+}
+
+.btn{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+}
+.btn:hover{
+    transform: scale(0.9);
 }
 .title{
     text-align: center;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
 }
 .warningClass{
     border: 1px solid red;
@@ -24,17 +63,53 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 #registrationForm input, #loginForm input{
     padding: 0.5rem;
 }
-
+#registrationForm{
+    margin-bottom: 2rem;
+}
 #loginForm .form-text, #registrationForm .form-text
 {
     text-align: center;
 }
+#footer {
+    position: fixed;
+    bottom: 0;
+    padding: 1rem;
+    width: 100%;
+
+}
 
 #footer .footerText{
     text-align: center;
+}
+
+#successMessage.notification {
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vmin;
+    width: 100vw;
+    position: fixed;
+
+}
+#successMessage.none {
+display: none;
+}
+#successMessage.notification .notificationBox {
+    height: 200px;
+    width: 300px;
+    color: white;
+    background-color: red;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+#successMessage p{
+    padding: 0.5rem;
 }

@@ -1,4 +1,6 @@
 <?php require_once 'templates/header.php' ?>
+<?php require_once 'templates/error_msg.php'?>
+
 <section id="register">
     <h2 class="title">Register</h2>
 
@@ -11,15 +13,11 @@
         <input type="password" name="password" id="password" placeholder="password">
         <input type="password" name="password2" id="password2" placeholder="repeat password">
 
-        <button type="submit" name="submit">Register</button>
+        <button class="btn primary-color" type="submit" name="submit">Register</button>
         <div class="formText">
             <em>Already a member?</em>
             <em>Please <a href="./login.php">log in</a> </em>
         </div>
     </form>
-    <div class="messagebox">
-        <p><span id="errorMessage"></span></p>
-    </div>
-
 </section>
 <?php require_once 'templates/footer.php' ?>
