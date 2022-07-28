@@ -1,4 +1,3 @@
-
 </main>
 
 <footer id="footer" class="primary-color">
@@ -9,4 +8,5 @@
 
 <script type="module" src="./assets/js/main.js"></script>
 </body>
+
 </html>

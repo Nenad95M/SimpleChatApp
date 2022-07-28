@@ -30,25 +30,25 @@ class RegistrationFormValidator
     //metoda proverava korisnicko ime pomocu regularnih izraza
     private function validUsername()
     {
-        
         return preg_match('/^[a-zA-Z0-9\s]+$/', $this->username);
+    }
+    private function validPassword()
+    {
+        return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $this->password);
     }
     //metoda proverava  ime pomocu regularnih izraza
     private function validFirstname()
     {
-    
         return preg_match('/^[a-zA-Z0-9\s]+$/', $this->firstname);
     }
     //metoda proverava  ime pomocu regularnih izraza
     private function validLastname()
     {
-    
         return preg_match('/^[a-zA-Z0-9\s]+$/', $this->lastname);
     }
     //metoda koja proverava mejl adresu
     private function validEmail()
     {
-        
         return filter_var($this->email, FILTER_VALIDATE_EMAIL);
     }
 
@@ -85,7 +85,7 @@ class RegistrationFormValidator
     public function isValid()
     {
         $result = false;
-        if ($this->notEmpty() && $this->validUsername() && $this->validFirstname() && $this->validLastname() && $this->passwordMatch() && $this->uniqeUser() && $this->validEmail()) {
+        if ($this->notEmpty() && $this->validUsername() && $this->validPassword() && $this->validFirstname() && $this->validLastname() && $this->passwordMatch() && $this->uniqeUser() && $this->validEmail()) {
             $result = true;
         } else {
             echo "Registracija nije prihvacena";

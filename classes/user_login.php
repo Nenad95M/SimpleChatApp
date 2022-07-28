@@ -1,4 +1,6 @@
 <?php
+        require_once 'database/database.php';
+
 class UserLogIn
 {
     private $username;
@@ -8,9 +10,24 @@ class UserLogIn
     public function __construct($username, $password)
     {
         $this->username = $username;
-
         $this->password = $password;
     }
+
+    //metoda koja upisuje korisnika kao aktivnog
+   private function setActive($id){
+        $pdo = Database::getConnection();
+        $sql = "UPDATE users SET active=1 WHERE id=:id";
+        $stmt=$pdo->prepare($sql);
+        $stmt->execute(['id'=>$id]);
+    }
+    //staticka metoda koja upisuje korisnika kao neaktivnog
+   public static function setInactive($id){
+        $pdo = Database::getConnection();
+        $sql = "UPDATE users SET active=0 WHERE id=:id";
+        $stmt=$pdo->prepare($sql);
+        $stmt->execute(['id'=>$id]);
+    }
+
     //metoda koja registruje korisnike
     public function sendToDatabase()
     {
@@ -44,6 +61,10 @@ class UserLogIn
                             $_SESSION["loggedin"] = true;
                             $_SESSION["username"] = $tableUsername;
                             $_SESSION["id"] = $tableId;
+
+                            //smesta korisnika kao aktivnog
+                            $this->setActive($tableId);
+
                             Database::disconnect();
                             // redirektujemo korisnika na stranicu gde je sada ulogovan
                             header("location:index.php");
@@ -63,7 +84,7 @@ class UserLogIn
         //zatvaramo konekciju
         unset($pdo);
     }
-
+    //staticka metoda koja prekida sesiju 
     public static function logOut()
     {
         session_start();

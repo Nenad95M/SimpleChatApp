@@ -86,17 +86,17 @@ export function validateRegister() {
 //validacija korsnickog imena
     function validNames() {
         let res = true;
-        const re = /^[a-zA-Z]{2,10}$/;
+        const re = /^[a-zA-Z]{2,}$/;
         if (!re.test(username.value.trim())) {
-            message = "Username must be minimum two and maximum ten characters";
+            message = "Username must be minimum two characters";
             res = false;
         }
         if (!re.test(firstname.value.trim())) {
-            message = "Firstname must be minimum two and maximum ten characters";
+            message = "Firstname must be minimum two characters";
             res = false;
         }
         if (!re.test(lastname.value.trim())) {
-            message = "Lastname must be minimum two and maximum ten characters";
+            message = "Lastname must be minimum two characters";
             res = false;
         }
         return res;
