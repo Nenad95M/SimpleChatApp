@@ -1,29 +1,33 @@
 export function users() {
     const chat = document.getElementById('chat');
     const allUsers = Array.from(document.getElementById('users').querySelectorAll('li'));
+    let reciver;
+/*NIJE ZAVRSENO!!!*/
 
 
 
     function fetchServer() {
-        fetch('./components/messages.php')
-            .then((response) => response.json())
-            .then((data) => console.log(data));
+        const URL = './components/messages.php';
+  
     }
 
 
     allUsers.forEach(user => {
         user.addEventListener('click', () => {
-            console.log(user.getAttribute('data-id'));
+            reciver = user.getAttribute('data-id');
         })
     });
 
 
-
     chat.addEventListener('submit', (e) => {
-        fetchServer();
-        console.log('submit');
+        let text = document.getElementById('chatInput').value;
+        const forSending={
+            reciver:reciver,
+            text:text
+        }
+        const jsonString=JSON.stringify(forSending);
+        console.log(jsonString);
         e.preventDefault();
     });
 }
-
 

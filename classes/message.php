@@ -25,9 +25,9 @@ class Message
             $stmt->bindParam(':reciver_id', $param_reciver, PDO::PARAM_STR);
             $stmt->bindParam(':text', $param_text, PDO::PARAM_STR);
 
-            $param_sender = $this->sender;
-            $param_reciver = $this->reciver;
-            $param_text = $this->text;
+            $param_sender =htmlentities($this->sender);
+            $param_reciver = htmlentities($this->reciver);
+            $param_text = htmlentities($this->text);
 
             if ($stmt->execute()) {
                 Database::disconnect();
