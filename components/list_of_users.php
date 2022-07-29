@@ -9,7 +9,7 @@ $loggedUsers = new loggedUsers();
 <section id="listOfUsers">
 
     <h3>Aktivni korisnici:</h3>
-    <ul>
+    <ul id="users">
         <?php
 
         foreach ($loggedUsers->listOfLoggedUsers() as $loggedUser) {
