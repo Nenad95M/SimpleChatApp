@@ -48,7 +48,7 @@ class Message
         $pdo = Database::getConnection();
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT `sender_id`, `reciver_id`, `text`, `date_time` FROM `messages` ORDER BY 'date_time' DESC";
+        $sql = "SELECT `sender_id`, `reciver_id`, `text`, `date_time` FROM `messages` ORDER BY 'date_time' DESC LIMIT 10";
 
         if ($stmt = $pdo->prepare($sql)) {
             if ($stmt->execute()) {
