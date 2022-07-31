@@ -6,16 +6,16 @@ export function users() {
 
 
 
-    function fetchServer() {
+    function fetchServer(data) {
         const URL = './components/messages.php';
 
         let options = {
-            method: 'GET',      
-            headers: {}
+            method: 'POST',      
+            body:data,
           };
           
           fetch(URL, options)
-          .then(response => response.json())
+          .then(response => response.stringify())
           .then(body => {
             console.log(body);
           });
@@ -37,7 +37,7 @@ export function users() {
             text:text
         }
         const jsonString=JSON.stringify(forSending);
-        console.log(jsonString);
+        fetchServer(jsonString);
         e.preventDefault();
     });
 }
