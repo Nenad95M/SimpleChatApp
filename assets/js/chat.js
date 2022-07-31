@@ -8,6 +8,17 @@ export function users() {
 
     function fetchServer() {
         const URL = './components/messages.php';
+
+        let options = {
+            method: 'GET',      
+            headers: {}
+          };
+          
+          fetch(URL, options)
+          .then(response => response.json())
+          .then(body => {
+            console.log(body);
+          });
   
     }
 

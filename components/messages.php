@@ -6,11 +6,8 @@ require './classes/message.php';
 /*NIJE ZAVRSENO!!!*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    $str_json = file_get_contents('php://input'); 
-    $response = json_decode($str_json, true); 
     
-    $lName = $response[0];
-    $age = $response[1];
+ 
     
     $text = trim(htmlspecialchars($_POST['text']));
     $sender = $_SESSION['id'];
