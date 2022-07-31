@@ -17,7 +17,7 @@ $loggedUsers = new loggedUsers();
             if ($loggedUser["id"] == $_SESSION["id"]) {
                 continue 1;
             }
-            echo "<li data-id='" . $loggedUser["id"] . "' >" . $loggedUser["username"] . " ✉️ </li>";
+            echo "<li data-id='" . $loggedUser["id"] . "' >" . $loggedUser["username"] . " </li>";
         }
         ?>
     </ul>
