@@ -10,11 +10,14 @@ if ( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]) {
         $sender = $_SESSION['id'];
         $reciver = $_POST['reciver'];
 
-    $messages = new Message($sender, $reciver, $text);
-     $messages->sendMessage();
-     echo "Poslato";
+    $messages = new Message($sender, $reciver);
+    if ($messages->setMessage($text)){
+       $messages->sendMessage();
+       
+       $allMessages= $messages->printMessage();
+echo($allMessages) ;
+    }
+}
    
 
-}}
-
-?>
+}

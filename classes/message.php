@@ -6,11 +6,15 @@ class Message
     private $text;
     private $messages;
 
-    public function __construct($sender, $reciver, $text)
+    public function __construct($sender, $reciver)
     {
         $this->sender = $sender;
         $this->reciver = $reciver;
-        $this->text = $text;
+    }
+    public function setMessage($mesg){
+    $this->text=$mesg;
+    if( $this->text==$mesg)
+    return true;
     }
     public function sendMessage(){
         //za ukljucivanje statickih metoda za povezivanje sa bazom
@@ -52,8 +56,11 @@ class Message
 
         if ($stmt = $pdo->prepare($sql)) {
             if ($stmt->execute()) {
+        
                 Database::disconnect();
-                $this->messages = $stmt;
+                $res=$stmt->fetchAll(PDO::FETCH_ASSOC);
+
+               $this->messages =json_encode($res);
             } else {
                 echo "Imamo problem sa preuzimanjem korisnika iz baze";
             }
@@ -64,6 +71,8 @@ class Message
     
     public function printMessage(){
         $this->fetchMessage();
+
+      
         return $this->messages;
     }
 }

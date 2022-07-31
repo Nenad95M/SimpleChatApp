@@ -13,6 +13,12 @@ a {
     text-decoration: none;
     color: var(--secondary-color);
 }
+/*ative*/
+.active{
+    background-color: #28a745;
+    color: #fff;
+}
+
 
 #chat {
     margin-top: 2rem;
